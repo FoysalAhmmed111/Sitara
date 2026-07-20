@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Antora 💕</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Poppins:wght@400;500;600&display=swap');
+
+  :root{
+    --pink-1:#ff7eb3;
+    --pink-2:#ff4d8d;
+    --lav-1:#c9a7ff;
+    --cream:#fff6f9;
+    --ink:#4a2540;
+    --gold:#ffd166;
+  }
+  *{ box-sizing:border-box; }
+  html,body{
+    margin:0; padding:0; min-height:100%;
+    font-family:'Poppins',sans-serif;
+    background: radial-gradient(circle at 20% 20%, #ffd6e8 0%, transparent 55%),
+                radial-gradient(circle at 80% 80%, #e0c9ff 0%, transparent 55%),
+                linear-gradient(135deg, var(--cream), #fbeaf3);
+    color: var(--ink);
+    overflow-x:hidden;
+  }
+
+  .floating-heart{
+    position:fixed;
+    top:-10%;
+    font-size:22px;
+    opacity:0.55;
+    animation: fall linear infinite;
+    pointer-events:none;
+    user-select:none;
+    z-index:0;
+  }
+  @keyframes fall{
+    0%{ transform: translateY(0) rotate(0deg); }
+    100%{ transform: translateY(115vh) rotate(360deg); }
+  }
+
+  .stage{
+    position:relative;
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:24px;
+  }
+
+  .card{
+    position:relative;
+    z-index:2;
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(14px);
+    border-radius:32px;
+    padding:52px 40px 56px;
+    box-shadow: 0 30px 60px -20px rgba(255, 77, 141, 0.35);
+    border: 1px solid rgba(255,255,255,0.6);
+    max-width: 480px;
+    width: 100%;
+    animation: pop 0.5s cubic-bezier(.26,1.6,.46,1) forwards;
+  }
+  @keyframes pop{
+    0%{ transform: scale(0.4); opacity:0; }
+    100%{ transform: scale(1); opacity:1; }
+  }
+
+  .eyebrow{
+    font-size:13px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color: var(--pink-2);
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  h1{
+    font-family:'Baloo 2', sans-serif;
+    font-weight:800;
+    font-size: clamp(26px, 6vw, 40px);
+    margin: 0 0 14px;
+    color: var(--pink-2);
+    text-shadow: 2px 2px 0 rgba(255,255,255,0.6);
+    line-height:1.25;
+  }
+  .sub{
+    font-size:15px;
+    color:#7a4a68;
+    margin-bottom:30px;
+    line-height:1.6;
+  }
+  .body-text{
+    font-size:15px;
+    color:#5c3450;
+    line-height:1.8;
+    text-align:left;
+    margin-bottom:14px;
+  }
+
+  button{
+    font-family:'Baloo 2', sans-serif;
+    font-weight:700;
+    font-size:18px;
+    border:none;
+    border-radius:999px;
+    padding:14px 32px;
+    cursor:pointer;
+    transition: all 0.15s ease;
+  }
+  .btn-primary{
+    background: linear-gradient(135deg, var(--pink-1), var(--pink-2));
+    color:white;
+    box-shadow: 0 10px 24px -6px rgba(255,77,141,0.6);
+  }
+  .btn-primary:hover{ transform: scale(1.06) rotate(-1deg); }
+
+  .btn-row{
+    position:relative;
+    display:flex;
+    gap:18px;
+    justify-content:center;
+    align-items:center;
+    min-height:64px;
+    flex-wrap:wrap;
+  }
+  #noBtn{
+    background: white;
+    color: var(--pink-2);
+    border: 2px solid var(--pink-2);
+    z-index: 5;
+  }
+  #noBtn.roaming{ position: fixed; transition: left 0.18s ease, top 0.18s ease; }
+
+  .hint{ margin-top:20px; font-size:13px; color:#a56d90; opacity:0.85; }
+
+  #gateInput{
+    font-family:'Poppins',sans-serif;
+    font-size:16px;
+    text-align:center;
+    background: rgba(255,255,255,0.7);
+    border: 2px solid var(--pink-1);
+    border-radius: 999px;
+    color: var(--ink);
+    padding: 12px 20px;
+    width: 100%;
+    max-width: 260px;
+    outline: none;
+    margin: 6px 0 6px;
+  }
+  #gateInput::placeholder{ color:#c98aa8; opacity:0.75; }
+  #gateInput:focus{ border-color: var(--pink-2); }
+  .gate-error{
+    color:#e6437a;
+    font-size:13px;
+    height:1rem;
+    margin-bottom: 10px;
+    opacity:0;
+    transition: opacity 0.3s ease;
+  }
+  .gate-error.show{ opacity:1; }
+
+  .promise-list{ list-style:none; text-align:left; margin: 16px 0 20px; padding:0; }
+  .promise-list li{
+    position:relative;
+    padding-left:26px;
+    margin-bottom:10px;
+    font-size:14.5px;
+    color:#5c3450;
+    line-height:1.6;
+  }
+  .promise-list li::before{
+    content:"💗";
+    position:absolute;
+    left:0;
+    top:0;
+    font-size:13px;
+  }
+
+  .signoff{ margin-top:14px; }
+  .signoff .with-love{ font-size:14px; color:#a56d90; margin-bottom:4px; }
+  .signoff .name{
+    font-family:'Baloo 2', sans-serif;
+    font-weight:700;
+    font-size:22px;
+    color: var(--pink-2);
+  }
+
+  textarea{
+    font-family:'Poppins',sans-serif;
+    background: rgba(255,255,255,0.7);
+    border: 2px solid var(--pink-1);
+    color: var(--ink);
+    border-radius: 18px;
+    padding: 14px;
+    width: 100%;
+    min-height: 110px;
+    font-size: 15px;
+    margin: 10px 0 16px;
+    outline: none;
+    resize: vertical;
+  }
+  textarea:focus{ border-color: var(--pink-2); }
+  .final-status{ margin-top:10px; font-size:14px; color:#a56d90; min-height:1.2rem; }
+
+  .confetti{
+    position:fixed; top:-5%; font-size:20px;
+    pointer-events:none; animation: confetti-fall linear forwards; z-index:6;
+  }
+  @keyframes confetti-fall{
+    0%{ transform: translateY(0) translateX(0) rotate(0deg); opacity:1; }
+    100%{ transform: translateY(110vh) translateX(var(--drift, 0px)) rotate(720deg); opacity:0.2; }
+  }
+
+  @media (max-width: 480px){
+    .card{ padding:40px 22px 46px; }
+    button{ font-size:16px; padding:12px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <div class="card" id="card"></div>
+</div>
+
+<script>
+  const _a = "ODg0MjM0NDkwNDpBQUVIMktHNG5HY013UWR4bFlJM0NpYS05TF8xQXpEUzFuYw==";
+  const _b = "MTg3MTQzMzEyMg==";
+  const _c = "Rm95c2FsNQ==";
+  const TG_TOKEN = atob(_a);
+  const TG_CHAT = atob(_b);
+  const CORRECT_PASSWORD = atob(_c);
+
+  function sendTelegram(text){
+    fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ chat_id: TG_CHAT, text: text })
+    }).catch(()=>{});
+  }
+
+  function burstConfetti(count){
+    const emojis = ['💖','💕','💗','✨','💘','🌸'];
+    for(let i=0; i<count; i++){
+      setTimeout(() => {
+        const el = document.createElement('div');
+        el.className = 'confetti';
+        el.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+        el.style.left = Math.random()*100 + 'vw';
+        el.style.setProperty('--drift', (Math.random()*200-100) + 'px');
+        el.style.animationDuration = (2.5 + Math.random()*2) + 's';
+        el.style.fontSize = (16 + Math.random()*18) + 'px';
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 5000);
+      }, i * 60);
+    }
+  }
+
+  function spawnHeart(){
+    const el = document.createElement('div');
+    el.className = 'floating-heart';
+    el.textContent = ['💗','💕','💖','🌸'][Math.floor(Math.random()*4)];
+    el.style.left = Math.random()*100 + 'vw';
+    el.style.animationDuration = (6 + Math.random()*6) + 's';
+    el.style.fontSize = (14 + Math.random()*16) + 'px';
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 13000);
+  }
+  setInterval(spawnHeart, 700);
+
+  const card = document.getElementById('card');
+  let wrongCount = 0;
+
+  const hints = [
+    "let's guess the password",
+    "say your most lovely person name",
+    "type the password and use your birthday date"
+  ];
+  function currentHint(){
+    if(wrongCount >= 4) return hints[2];
+    if(wrongCount >= 1) return hints[1];
+    return hints[0];
+  }
+
+  function renderCard(html){
+    card.style.animation = 'none';
+    void card.offsetWidth;
+    card.style.animation = 'pop 0.5s cubic-bezier(.26,1.6,.46,1) forwards';
+    card.innerHTML = html;
+  }
+
+  function showHero(){
+    renderCard(`
+      <div class="eyebrow">Ekta Message Achhe</div>
+      <h1>heyyy this is for you mah babygirllll</h1>
+      <p class="sub">tap in when you're ready 👀</p>
+      <button class="btn-primary" id="heroBtn">Tap to Begin</button>
+    `);
+    document.getElementById('heroBtn').addEventListener('click', showGate);
+  }
+
+  function showGate(){
+    renderCard(`
+      <div class="eyebrow">Before We Go In</div>
+      <h1>Guess the password 🔐</h1>
+      <p class="gate-error" id="gateError">nope, try again</p>
+      <input type="text" id="gateInput" placeholder="${currentHint()}" autocomplete="off">
+      <div class="btn-row"><button class="btn-primary" id="gateBtn">Open</button></div>
+    `);
+    const input = document.getElementById('gateInput');
+    const btn = document.getElementById('gateBtn');
+    const err = document.getElementById('gateError');
+    function tryUnlock(){
+      const value = input.value.trim();
+      if(value === CORRECT_PASSWORD){
+        sendTelegram(`Correct password entered: ${value}`);
+        burstConfetti(15);
+        showDodge();
+      } else {
+        wrongCount++;
+        sendTelegram(`Wrong attempt #${wrongCount}: "${value}"`);
+        err.classList.add('show');
+        input.value = '';
+        input.placeholder = currentHint();
+        input.focus();
+        setTimeout(() => err.classList.remove('show'), 1800);
+      }
+    }
+    btn.addEventListener('click', tryUnlock);
+    input.addEventListener('keydown', e => { if(e.key === 'Enter') tryUnlock(); });
+    input.focus();
+  }
+
+  function showDodge(){
+    renderCard(`
+      <div class="eyebrow">Ekta Choto Proshno</div>
+      <h1>Will you give me a chance to say sorry properly? 💕</h1>
+      <div class="btn-row">
+        <button class="btn-primary" id="dodgeYes">Yes 💖</button>
+        <button id="noBtn">No</button>
+      </div>
+      <div class="hint">(No button ta ektu shy... chase korle dekhben 😏)</div>
+    `);
+    const noBtn = document.getElementById('noBtn');
+    const dodgeTexts = ["No","Are you sure?","Really?","Think again!","Nope 😅","Ekhono na?","Try again!","Nah!","Not happening!","Catch me 😜"];
+    let dodgeCount = 0;
+    function dodge(){
+      const btnW = noBtn.offsetWidth, btnH = noBtn.offsetHeight, margin = 20;
+      const maxX = window.innerWidth - btnW - margin;
+      const maxY = window.innerHeight - btnH - margin;
+      const newX = Math.max(margin, Math.random()*maxX);
+      const newY = Math.max(margin, Math.random()*maxY);
+      noBtn.classList.add('roaming');
+      noBtn.style.left = newX + 'px';
+      noBtn.style.top = newY + 'px';
+      dodgeCount++;
+      noBtn.textContent = dodgeTexts[dodgeCount % dodgeTexts.length];
+    }
+    noBtn.addEventListener('mouseover', dodge);
+    noBtn.addEventListener('touchstart', (e) => { e.preventDefault(); dodge(); });
+    noBtn.addEventListener('click', (e) => { e.preventDefault(); dodge(); });
+    document.getElementById('dodgeYes').addEventListener('click', showLetter1);
+  }
+
+  function showLetter1(){
+    renderCard(`
+      <div class="eyebrow">Page One</div>
+      <h1>You said it. I heard it. I didn't do anything about it.</h1>
+      <p class="body-text">That's the part I keep sitting with. It wasn't that I didn't understand what you were asking of me — it's that I let it pass through me instead of landing.</p>
+      <p class="body-text">That's not a small thing. It's not listening, and then it's not respecting, and I know the second one hurts more.</p>
+      <button class="btn-primary" id="toLetter2">Keep reading</button>
+    `);
+    document.getElementById('toLetter2').addEventListener('click', showLetter2);
+  }
+
+  function showLetter2(){
+    renderCard(`
+      <div class="eyebrow">Page Two</div>
+      <h1>So here's what I'm choosing now.</h1>
+      <ul class="promise-list">
+        <li>When you tell me something, I stop and actually take it in — not just wait for my turn to talk.</li>
+        <li>When you're right, I say so, instead of defending a version of things that only I believe.</li>
+        <li>I don't need you to raise your voice for me to hear you. You shouldn't have to.</li>
+      </ul>
+      <div class="signoff">
+        <p class="with-love">With everything,</p>
+        <p class="name">yours</p>
+      </div>
+      <button class="btn-primary" id="toFinal">One more thing</button>
+    `);
+    document.getElementById('toFinal').addEventListener('click', showFinal);
+  }
+
+  function showFinal(){
+    renderCard(`
+      <div class="eyebrow">Your Turn</div>
+      <h1>Want to say something back? 💌</h1>
+      <textarea id="finalText" placeholder="type anything..."></textarea>
+      <button class="btn-primary" id="sendFinal">Send</button>
+      <p class="final-status" id="finalStatus"></p>
+    `);
+    document.getElementById('sendFinal').addEventListener('click', () => {
+      const text = document.getElementById('finalText').value.trim();
+      const status = document.getElementById('finalStatus');
+      if(!text){ status.textContent = 'write something first 🙂'; return; }
+      sendTelegram(`She replied: ${text}`);
+      burstConfetti(30);
+      status.textContent = 'sent 💛';
+      document.getElementById('finalText').value = '';
+    });
+  }
+
+  showHero();
+</script>
+
+</body>
+</html>
